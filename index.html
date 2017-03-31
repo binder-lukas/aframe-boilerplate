@@ -2,6 +2,7 @@
 <html>
 
 <head>
+<<<<<<< HEAD
     <meta charset="utf-8">
     <title>Hello, World! - A-Frame</title>
     <meta name="description" content="Hello, World! - A-Frame">
@@ -66,3 +67,37 @@
 </body>
 
 </html>
+=======
+  <meta charset="utf-8">
+  <title>Hello, World! - A-Frame</title>
+  <meta name="description" content="Hello, World! - A-Frame">
+  <script src="aframe.js"></script>
+  <script src="aframe-animation.js"></script>
+  <script src="aframe-fence-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#7BC8A4"></a-plane>
+      <a-entity id="Player" position="0 0 0" rotation="-10 180 0" camera="userHeight: 3" wasd-controls look-controls>
+        <a-entity rotation="0 125 0" position="-0.5 -0.5 -4">
+          <a-entity id="Sphere" geometry="buffer:false;mergeTo:null;primitive:sphere;skipCache:true;radius:0.75;phiLength:180" material="side:double;color:#fdff00;"
+            position="0 0 0" rotation="130 0 0" animation="dir: alternate; easing: easeInOutCubic; loop: true; dur: 700; property: rotation; to: 90 0 0 ">
+            <a-entity geometry="buffer:false;mergeTo:#Sphere;primitive:circle;skipCache:true;radius:0.75;" material="side:double;color:#fdff00;"></a-entity>
+          </a-entity>
+          <a-entity id="Sphere2" geometry="buffer:false;mergeTo:null;primitive:sphere;radius:0.75;skipCache:true;phiLength:180" material="side:double;color:#fdff00;"
+            position="0 0 0" rotation="220 0 0" animation="dir: alternate; easing: easeInOutCubic;dur: 700; loop: true; property: rotation; to: 270 0 0">
+            <a-entity geometry="buffer:false;mergeTo:#Sphere2;primitive:circle;skipCache:true;radius:0.75" material="side:double;color:#fdff00;"></a-entity>
+            <a-entity geometry="buffer:false;primitive:sphere;skipCache:true;thetaLength:7.5;radius:0.75;" material="side:double;color:#000000;"
+              rotation="160 0 30"></a-entity>
+            <a-entity geometry="buffer:false;primitive:sphere;skipCache:true;thetaLength:7.5;radius:0.75;" material="side:double;color:#000000;"
+              rotation="160 0 -30"></a-entity>
+          </a-entity>
+        </a-entity>
+    </a-frame>
+    <a-sky color="#ECECEC"></a-sky>
+  </a-scene>
+</body>
+
+</html>
+>>>>>>> fa53cf8b8f02919857c15e311007284a9945cc6c
