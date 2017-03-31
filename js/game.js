@@ -74,21 +74,45 @@
       this.currentScore = 0;
       this.collectCookieRewardPoints = 1;
       var time = 0;
-      var dir = 270;
+      var dir = 0; //0..3
       var cam = document.getElementById("PlayerCamera");
+      var ent = document.getElementById("PlayerEntity");
       function frame(t){
         var dt = t-time;
         dt /= 900;
         time = t;
         var obj = cam.getAttribute("position");
-        var isX = (dir == 90 || dir == 270)?false:true;
-        obj.x = (isX)?(dir == 0)?obj.x+=dt:obj.x-=dt:obj.x;
-        obj.z = (!isX)?(dir == 90)?obj.z+=dt:obj.z-=dt:obj.z;
+        switch(dir){
+            case 0:
+                obj.x += dt;
+                break;
+            case 1:
+                obj.z -= dt;
+                break;
+            case 2:
+                obj.x -= dt;
+                break;
+            case 3:
+                obj.z += dt;
+                break;
+        }
         cam.setAttribute("position",obj);
 
         window.requestAnimationFrame(frame);
       }
       this.setup = function() {
+
+          window.onkeydown = (e)=>{
+              if(e.keyCode == 68){
+                    dir -= 1;
+              }else{
+                    dir += 1;
+              }
+              dir = (dir<0)?3:(dir>3)?0:dir;
+              cam.setAttribute("rotation",{x:0, y:(dir-1)*90, z:0});
+              ent.setAttribute("rotation",{x:0, y:(dir-1)*90, z:0});
+              
+          }
           // Setup level
           // Floor
           var floor = document.getElementById('plane');
