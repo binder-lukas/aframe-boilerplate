@@ -13,7 +13,7 @@
 <body>
   <a-scene>
     <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#7BC8A4"></a-plane>
-      <a-entity fence="" id="Player" position="0 0 0" rotation="-10 180 0" camera="userHeight: 3" wasd-controls look-controls>
+      <a-entity id="Player" position="0 0 0" rotation="-10 180 0" camera="userHeight: 3" wasd-controls look-controls>
         <a-entity rotation="0 125 0" position="-0.5 -0.5 -4">
           <a-entity id="Sphere" geometry="buffer:false;mergeTo:null;primitive:sphere;skipCache:true;radius:0.75;phiLength:180" material="side:double;color:#fdff00;"
             position="0 0 0" rotation="130 0 0" animation="dir: alternate; easing: easeInOutCubic; loop: true; dur: 700; property: rotation; to: 90 0 0 ">
