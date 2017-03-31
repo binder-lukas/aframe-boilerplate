@@ -2,102 +2,44 @@
 <html>
 
 <head>
-<<<<<<< HEAD
     <meta charset="utf-8">
     <title>Hello, World! - A-Frame</title>
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="aframe.js"></script>
+      <script src="lib/aframe-animation.js"></script>
 </head>
 
 <body>
-    <a-scene>
-        <!--<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>-->
+    <a-scene id="szene">
         <a-plane position="17 0 15" rotation="-90 0 0" width="35" height="35" color="#ff0000" id="plane"></a-plane>
-<!--
-        <a-plane position="0 1 15" width="100" height="100" color="blue" id="wall-1" rotation="0 0 0" scale="1 1 1" visible="true" material="color:blue" geometry="primitive:box;width:30;height:5"></a-plane>
-        <a-plane position="0 1 -15" width="100" height="100" color="blue" id="wall-2" rotation="0 0 0" scale="1 1 1" visible="true" material="color:blue" geometry="primitive:box;width:30;height:5"></a-plane>
-        <a-plane position="14 1 0" width="100" height="100" color="blue" id="wall-3" rotation="0 90 0" scale="1 1 1" visible="true" material="color:blue" geometry="primitive:box;width:30;height:5"></a-plane>
-        <a-plane position="-14 1 0" width="100" height="100" color="blue" id="wall-4" rotation="0 90 0" scale="1 1 1" visible="true" material="color:blue" geometry="primitive:box;width:30;height:5"></a-plane>
 
-
--->
-
-
+        <a-entity id="Player" position="10 0 0" rotation="0 180 0">
+          <a-entity id="PlayerCamera" camera="userHeight: 1.3" wasd-controls>
+          <a-entity id="PlayerEntity" rotation="0 125 0" position="-0.2 -0.3 -0.5">
+            <a-entity id="Sphere" geometry="buffer:false;mergeTo:null;primitive:sphere;skipCache:true;radius:0.2ŷ;phiLength:180" material="side:double;color:#fdff00;"
+              position="0 0 0" rotation="130 0 0" animation="dir: alternate; easing: easeInOutCubic; loop: true; dur: 700; property: rotation; to: 90 0 0 ">
+              <a-entity geometry="buffer:false;mergeTo:#Sphere;primitive:circle;skipCache:true;radius:0.2;" material="side:double;color:#fdff00;"></a-entity>
+            </a-entity>
+            <a-entity id="Sphere2" geometry="buffer:false;mergeTo:null;primitive:sphere;radius:0.2;skipCache:true;phiLength:180" material="side:double;color:#fdff00;"
+              position="0 0 0" rotation="220 0 0" animation="dir: alternate; easing: easeInOutCubic;dur: 700; loop: true; property: rotation; to: 270 0 0">
+              <a-entity geometry="buffer:false;mergeTo:#Sphere2;primitive:circle;skipCache:true;radius:0.2" material="side:double;color:#fdff00;"></a-entity>
+              <a-entity geometry="buffer:false;primitive:sphere;skipCache:true;thetaLength:7.5;radius:0.2;" material="side:double;color:#000000;"
+                rotation="160 0 30"></a-entity>
+              <a-entity geometry="buffer:false;primitive:sphere;skipCache:true;thetaLength:7.5;radius:0.2;" material="side:double;color:#000000;"
+                rotation="160 0 -30"></a-entity>
+            </a-entity>
+          </a-entity>
 
 <a-entity id="river" geometry="primitive: plane" material="color: blue"
           position="-10 0 0" sound="src: url(sprites/mp3/pacman_beginning_mp3.MP3); autoplay: true;loop: true;"></a-entity>
 
-        <!-- LEVEL
-
-        <a-entity class='innerwall' position="0 0.68 -14" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4" material="" id="INNER_WALL"></a-entity>
-        <a-entity class='innerwall' position="0 0.68 -13" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4" material="" id="INNER_WALL-2"></a-entity>
-        <a-entity class='innerwall' position="0 0.68 -12" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4" material="" id="INNER_WALL-3"></a-entity>
-        <a-entity class='innerwall' position="0 0.68 -11" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4" material="" id="INNER_WALL-4"></a-entity>
-        <a-entity class='innerwall' position="2 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-5"></a-entity>
-        <a-entity class='innerwall' position="3 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-6"></a-entity>
-        <a-entity class='innerwall' position="4 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-7"></a-entity>
-        <a-entity class='innerwall' position="5 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-8"></a-entity>
-        <a-entity class='innerwall' position="6 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-9"></a-entity>
-        <a-entity class='innerwall' position="8 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-10"></a-entity>
-        <a-entity class='innerwall' position="9 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-11"></a-entity>
-        <a-entity class='innerwall' position="10 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-12"></a-entity>
-        <a-entity class='innerwall' position="10 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-13"></a-entity>
-
-
-        <a-entity class='innerwall' position="-2 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-5"></a-entity>
-        <a-entity class='innerwall' position="-3 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-6"></a-entity>
-        <a-entity class='innerwall' position="-4 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-7"></a-entity>
-        <a-entity class='innerwall' position="-5 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-8"></a-entity>
-        <a-entity class='innerwall' position="-6 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-9"></a-entity>
-        <a-entity class='innerwall' position="-8 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-10"></a-entity>
-        <a-entity class='innerwall' position="-9 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-11"></a-entity>
-        <a-entity class='innerwall' position="-10 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-12"></a-entity>
-        <a-entity class='innerwall' position="-10 0.68 -11.5" rotation="0 0 0" scale="1 1 1" visible="true" geometry="height:4;width:1;depth:2" material="" id="INNER_WALL-13"></a-entity>
-    End of Level -->
-
 
     <a-sky color="#ECECEC"></a-sky>
     </a-scene>
+
     <script src="js/game.js"></script>
     <script src="lib/fence.js"></script>
 
     <!-- LIBS -->
 </body>
-
 </html>
-=======
-  <meta charset="utf-8">
-  <title>Hello, World! - A-Frame</title>
-  <meta name="description" content="Hello, World! - A-Frame">
-  <script src="aframe.js"></script>
-  <script src="aframe-animation.js"></script>
-  <script src="aframe-fence-component.min.js"></script>
-</head>
-
-<body>
-  <a-scene>
-    <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#7BC8A4"></a-plane>
-      <a-entity id="Player" position="0 0 0" rotation="-10 180 0" camera="userHeight: 3" wasd-controls look-controls>
-        <a-entity rotation="0 125 0" position="-0.5 -0.5 -4">
-          <a-entity id="Sphere" geometry="buffer:false;mergeTo:null;primitive:sphere;skipCache:true;radius:0.75;phiLength:180" material="side:double;color:#fdff00;"
-            position="0 0 0" rotation="130 0 0" animation="dir: alternate; easing: easeInOutCubic; loop: true; dur: 700; property: rotation; to: 90 0 0 ">
-            <a-entity geometry="buffer:false;mergeTo:#Sphere;primitive:circle;skipCache:true;radius:0.75;" material="side:double;color:#fdff00;"></a-entity>
-          </a-entity>
-          <a-entity id="Sphere2" geometry="buffer:false;mergeTo:null;primitive:sphere;radius:0.75;skipCache:true;phiLength:180" material="side:double;color:#fdff00;"
-            position="0 0 0" rotation="220 0 0" animation="dir: alternate; easing: easeInOutCubic;dur: 700; loop: true; property: rotation; to: 270 0 0">
-            <a-entity geometry="buffer:false;mergeTo:#Sphere2;primitive:circle;skipCache:true;radius:0.75" material="side:double;color:#fdff00;"></a-entity>
-            <a-entity geometry="buffer:false;primitive:sphere;skipCache:true;thetaLength:7.5;radius:0.75;" material="side:double;color:#000000;"
-              rotation="160 0 30"></a-entity>
-            <a-entity geometry="buffer:false;primitive:sphere;skipCache:true;thetaLength:7.5;radius:0.75;" material="side:double;color:#000000;"
-              rotation="160 0 -30"></a-entity>
-          </a-entity>
-        </a-entity>
-    </a-frame>
-    <a-sky color="#ECECEC"></a-sky>
-  </a-scene>
-</body>
-
-</html>
->>>>>>> fa53cf8b8f02919857c15e311007284a9945cc6c
